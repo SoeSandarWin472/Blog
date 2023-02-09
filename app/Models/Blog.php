@@ -8,9 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Blog extends Model
 {
     use HasFactory;
-    protected $guarded = [];
+
     protected $with = ['category', 'author'];
-    //protected $fillable=['title','intro','body'];
     public function scopeFilter($query, $filter)
     {
         $query->when($filter['search'] ?? false, function ($query, $search) {
