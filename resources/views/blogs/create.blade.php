@@ -5,7 +5,7 @@
         <x-card-wrapper>
             <form
                 action="/admin/blogs/store"
-                method="POST"
+                method="POST" enctype="multipart/form-data"
             >
                 @csrf
                 <div class="mb-3">
@@ -69,6 +69,20 @@
                     <x-error name="body" />
                 </div>
 
+                <div class="mb-3">
+                    <label
+                        for="thumbnail"
+                        class="form-label"
+                    >Image</label>
+                    <input
+                        type="file"
+                        name="thumbnail"
+                        id="thumbnail"
+                        class="form-control"
+                    >
+                    <x-error name="thumbnail" />
+                </div>
+
                 <div>
                     <label
                         for="category"
@@ -85,6 +99,7 @@
                         </option>
                         @endforeach
                     </select>
+                     <x-error name="category_id" />
                 </div>
                 <div class="d-flex justify-content-start mt-3">
                     <button
