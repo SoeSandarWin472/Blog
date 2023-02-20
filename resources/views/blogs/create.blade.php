@@ -8,86 +8,13 @@
                 method="POST" enctype="multipart/form-data"
             >
                 @csrf
-                <div class="mb-3">
-                    <label
-                        for="title"
-                        class="form-label"
-                    >Title</label>
-                    <input
-                    required
-                        id="title"
-                        type="text"
-                        class="form-control"
-                        name="title"
-                        value="{{old('title')}}"
-                    >
-                    <x-error name="title" />
-                </div>  
-                <div class="mb-3">
-                    <label
-                        for="slug"
-                        class="form-label"
-                    >Slug</label>
-                    <input
-                    required
-                        id="slug"
-                        required
-                        type="text"
-                        class="form-control"
-                        name="slug"
-                        value="{{old('slug')}}"
-                    >
-                    <x-error name="slug" />
-                </div>
-                <div class="mb-3">
-                    <label
-                        for="intro"
-                        class="form-label"
-                    >Intro</label>
-                    <input
-                    required
-                        id="intro"
-                        type="text"
-                        class="form-control"
-                        name="intro"
-                        value="{{old('intro')}}"
-                    >
-                    <x-error name="intro" />
-                </div>
-                <div class="mb-3">
-                    <label
-                        for="body"
-                        class="form-label"
-                    >Body</label>
-                    <textarea
-                        name="body"
-                        id="body"
-                        cols="30"
-                        rows="10"
-                        class="form-control"
-                    >{{old('body')}}</textarea>
-                    <x-error name="body" />
-                </div>
-
-                <div class="mb-3">
-                    <label
-                        for="thumbnail"
-                        class="form-label"
-                    >Image</label>
-                    <input
-                        type="file"
-                        name="thumbnail"
-                        id="thumbnail"
-                        class="form-control"
-                    >
-                    <x-error name="thumbnail" />
-                </div>
-
+                <x-form.input name="title" />
+                <x-form.input name="slug" />
+                <x-form.input name="intro" />
+                <x-form.textarea name="body" />
+                <x-form.input name="thumbnail" type="file" />
                 <div>
-                    <label
-                        for="category"
-                        class="form-label"
-                    >Category</label>
+                <x-form.label name="category" />
                     <select
                         name="category_id"
                         id="category"
