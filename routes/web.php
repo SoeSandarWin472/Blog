@@ -48,3 +48,7 @@ Route::get('/admin/blogs/{blog:slug}/edit', [
     AdminBlogController::class,
     'edit',
 ])->middleware('admin');
+Route::patch('/admin/blogs/{blog:slug}/update', [
+    AdminBlogController::class,
+    'update',
+])->middleware('admin');

@@ -2,7 +2,7 @@
 <x-form.input-wrapper>
                     <x-form.label :name="$name" />
                     <input
-                    required
+                   
                         id="{{ $name }}"
                         type="{{ $type }}"
                         class="form-control"

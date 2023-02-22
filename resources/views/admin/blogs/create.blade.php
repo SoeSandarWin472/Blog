@@ -1,7 +1,6 @@
 
 <x-admin-layout>
     <h3 class="my-3 text-center">Blog Create Form</h3>
-   
         <x-card-wrapper>
             <form
                 action="/admin/blogs/store"
@@ -21,7 +20,7 @@
                         class="form-control"
                     >
                         @foreach ($categories as $category)
-                        <option {{$category->id==old('category_id',$blog->category->id) ? 'selected':''}}
+                        <option {{$category->id==old('category_id') ? 'selected':''}}
                             value="{{$category->id}}">{{$category->name}}
                         </option>
                         @endforeach
