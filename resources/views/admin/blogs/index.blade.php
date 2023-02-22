@@ -16,7 +16,7 @@
                     <tr>
                         <td>{{ $blog->title }}</td>
                         <td>{{ $blog->intro }}</td>
-                        <td><a href="" class="btn btn-warning">Edit</a></td>
+                        <td><a href="/admin/blogs/{{ $blog->slug }}/edit" class="btn btn-warning">Edit</a></td>
                         <td>
                             <form action="/admin/blogs/{{ $blog->slug }}/delete" method="POST">
                                 @csrf

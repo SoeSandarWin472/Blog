@@ -21,7 +21,7 @@
                         class="form-control"
                     >
                         @foreach ($categories as $category)
-                        <option {{$category->id==old('category_id') ? 'selected':''}}
+                        <option {{$category->id==old('category_id',$blog->category->id) ? 'selected':''}}
                             value="{{$category->id}}">{{$category->name}}
                         </option>
                         @endforeach

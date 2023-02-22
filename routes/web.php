@@ -44,3 +44,7 @@ Route::delete('/admin/blogs/{blog:slug}/delete', [
     AdminBlogController::class,
     'destroy',
 ])->middleware('admin');
+Route::get('/admin/blogs/{blog:slug}/edit', [
+    AdminBlogController::class,
+    'edit',
+])->middleware('admin');
