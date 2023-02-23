@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Providers;
-use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -26,5 +28,9 @@ class AppServiceProvider extends ServiceProvider
     {
         Model::unguard();
         Paginator::useBootstrapFour();
+
+        Gate::define('admin', function (User $user) {
+            return $user && $user->is_admin;
+        });
     }
 }

@@ -2,7 +2,6 @@
 <x-form.input-wrapper>
                     <x-form.label :name="$name" />
                     <input
-                   
                         id="{{ $name }}"
                         type="{{ $type }}"
                         class="form-control"
