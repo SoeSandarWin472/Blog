@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\AdminBlogController;
 use App\Models\User;
 
 Route::get('/', [BlogController::class, 'index']);
@@ -26,10 +27,22 @@ Route::post('/blogs/{blog:slug}/subscription', [
 ]);
 //admin route
 
-Route::get('/admin/blogs/create', [
-    BlogController::class,
-    'create',
-])->middleware('admin');
-Route::post('/admin/blogs/store', [BlogController::class, 'store'])->middleware(
-    'admin'
-);
+Route::middleware('can:admin')->group(function () {
+    Route::get('/admin/blogs', [AdminBlogController::class, 'index']);
+
+    Route::get('/admin/blogs/create', [AdminBlogController::class, 'create']);
+    Route::post('/admin/blogs/store', [AdminBlogController::class, 'store']);
+
+    Route::delete('/admin/blogs/{blog:slug}/delete', [
+        AdminBlogController::class,
+        'destroy',
+    ]);
+    Route::get('/admin/blogs/{blog:slug}/edit', [
+        AdminBlogController::class,
+        'edit',
+    ]);
+    Route::patch('/admin/blogs/{blog:slug}/update', [
+        AdminBlogController::class,
+        'update',
+    ]);
+});
